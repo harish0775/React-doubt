@@ -1,6 +1,17 @@
-import ReactDOM from 'react-dom'
-import Apps from './Apps'
+import React from "react";
+import ReactDOM from "react-dom";
+import {createStore} from 'redux';
+import App from "./components/App";
+import movies from './reducer/index';
+import {data as MovieList } from './data';
+import "./index.css";
 
-const key = [1,2,3,4,5];
 
-ReactDOM.render(<Apps store = {key}/>,document.getElementById('root'))
+
+const store = createStore(movies);
+// store.dispatch({
+//   type: 'ADD_Movie',
+//   movies: MovieList
+// })
+console.log('State', MovieList);
+ReactDOM.render(<App store = {store}/>, document.getElementById("root"));
